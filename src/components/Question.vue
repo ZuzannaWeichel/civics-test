@@ -161,7 +161,7 @@ export default {
     padding: 20px;
 }
 .title-height{
-    height: 22vh;
+    height: 25vh;
 }
 .spaced{
     display: flex;
