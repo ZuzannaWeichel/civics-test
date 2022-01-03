@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <v-card-title class="title-height" v-show="!alertOn" style="word-break: break-word">
+          <v-card-title v-show="!alertOn" style="word-break: break-word">
               <h3>{{questions[counter-1].question}}</h3>
           </v-card-title>
 
@@ -159,9 +159,6 @@ export default {
 .question-card{
     margin: 5% 0 5% 0;
     padding: 20px;
-}
-.title-height{
-    height: 25vh;
 }
 .spaced{
     display: flex;
