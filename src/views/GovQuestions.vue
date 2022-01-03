@@ -9,6 +9,7 @@
 
 <script>
 import Question from '../components/Question.vue'
+import { questions } from '../data/questions_all'
 
 export default {
   components: {
@@ -21,8 +22,7 @@ export default {
   },
   computed: {
     processedQuestions: function () {
-      const q = this.questions
-      const gov = q.filter(question => question.category === 'American Government')
+      const gov = questions.filter(question => question.category === 'American Government')
       const sorted = gov.sort((a, b) => 0.5 - Math.random())
 
       if (this.subcategory === 'all') {
@@ -37,17 +37,13 @@ export default {
       if (this.subcategory === 'rights') {
         return sorted.filter(question => question.subcategory === 'Rights and Responsibilities')
       }
-      return q
+      return gov
     }
   },
   props: {
     subcategory: {
       type: String,
       default: 'all'
-    },
-    questions: {
-      type: Array,
-      required: true
     }
   }
 }

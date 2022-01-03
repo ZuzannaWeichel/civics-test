@@ -9,6 +9,7 @@
 
 <script>
 import Question from '../components/Question.vue'
+import { dates, names, numbers, questions } from '../data/questions_all'
 
 export default {
   components: {
@@ -21,31 +22,31 @@ export default {
   },
   computed: {
     processedQuestions: function () {
-      const q = this.questions
-      const sorted = q.sort((a, b) => 0.5 - Math.random())
       if (this.subcategory === 'order') {
-        return q
+        return questions
       }
       if (this.subcategory === 'random') {
-        return sorted
+        return questions.sort((a, b) => 0.5 - Math.random())
       }
       if (this.subcategory === 'ten') {
-        return sorted.slice(0, 10)
+        return questions.sort((a, b) => 0.5 - Math.random()).slice(0, 10)
       }
-      if (this.subcategory === 'twenty') {
-        return sorted.slice(0, 20)
+      if (this.subcategory === 'numbers') {
+        return numbers.sort((a, b) => 0.5 - Math.random())
       }
-      return q
+      if (this.subcategory === 'names') {
+        return names.sort((a, b) => 0.5 - Math.random())
+      }
+      if (this.subcategory === 'dates') {
+        return dates.sort((a, b) => 0.5 - Math.random())
+      }
+      return questions
     }
   },
   props: {
     subcategory: {
       type: String,
       default: 'order'
-    },
-    questions: {
-      type: Array,
-      required: true
     }
   }
 }

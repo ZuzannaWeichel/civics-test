@@ -54,7 +54,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view :questions=this.questions></router-view>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -67,7 +67,6 @@ export default {
   data () {
     return {
       drawer: false,
-      questions: [],
       items: [
         {
           icon: 'grade',
@@ -158,20 +157,21 @@ export default {
               href: '/all/ten'
             },
             {
-              text: '20 questions',
-              href: '/all/twenty'
+              text: 'Important names',
+              href: '/all/names'
+            },
+            {
+              text: 'Dates to remember',
+              href: '/all/dates'
+            },
+            {
+              text: 'Lucky numbers',
+              href: '/all/numbers'
             }
           ]
         }
       ]
     }
-  },
-  created () {
-    this.$http
-      .get('https://civics-quiz-api-default-rtdb.firebaseio.com/.json')
-      .then(function (data) {
-        this.questions = data.body
-      })
   }
 }
 
