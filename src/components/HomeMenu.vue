@@ -12,7 +12,7 @@
             :key="i"
             :src="item.src"
             :href="item.href"
-            ></v-carousel-item>
+            ><h1 style="padding: 3%; color:white">{{item.title}}</h1></v-carousel-item>
         </v-carousel>
         </v-img>
         <div>
@@ -35,19 +35,26 @@ export default {
       items: [
         {
           src: '/img/americanGov.jpg',
-          href: '/government/all'
+          href: '/government/all',
+          title: 'American Government'
         },
         {
           src: '/img/americanHist.jpg',
-          href: '/history/all'
+          href: '/history/all',
+          title: 'American History'
+
         },
         {
           src: '/img/integratedCiv.jpg',
-          href: '/integrated/aa'
+          href: '/integrated/all',
+          title: 'Integrated Civics'
+
         },
         {
           src: '/img/allQ.jpg',
-          href: 'all/order'
+          href: 'all/order',
+          title: 'All Questions'
+
         }
       ]
     }
