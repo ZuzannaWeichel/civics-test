@@ -6,9 +6,10 @@
       elevation=6
       prominent
       max-height=150
+      shrink-on-scroll
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>
+      <v-toolbar-title style="overflow: visible;">
         <a href="/" id="homeLink"><span>USCIS </span>
         <span class="font-weight-light" >CIVICS QUIZ</span></a>
       </v-toolbar-title>

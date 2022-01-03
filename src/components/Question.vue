@@ -161,7 +161,7 @@ export default {
     padding: 20px;
 }
 .title-height{
-    height: 15vh;
+    height: 20vh;
 }
 .spaced{
     display: flex;
@@ -192,7 +192,6 @@ export default {
   font-size: calc(1vh + 1vw) !important;
 }
 #questionNumber {
-  /* color: white; */
   padding: 10px;
   font-weight: 500;
 }

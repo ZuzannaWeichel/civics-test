@@ -16,11 +16,11 @@
         </v-carousel>
         </v-img>
         <div>
-           <h2 id="mainText">
+           <h3 id="mainText">
                 Naturalization study materials.
                 <br />This app contains 2008 Civics Test version,
                 <br />100 questions and answers updated for Ohio 2021.
-            </h2>
+            </h3>
         </div>
         </v-card>
         </v-flex>
@@ -73,7 +73,6 @@ export default {
     height: auto;
     margin: 2vh;
     padding: 2vh;
-    font-size: calc(1vh + 1vw);
     font-family: 'Roboto', sans-serif
 }
 </style>
