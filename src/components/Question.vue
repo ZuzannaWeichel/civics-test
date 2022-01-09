@@ -178,6 +178,7 @@ export default {
 .spaced{
     display: flex;
     justify-content: space-evenly;
+    padding: 12px;
 }
 .to-the-right{
     display: flex;
