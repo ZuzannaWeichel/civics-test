@@ -3,7 +3,7 @@
     <v-layout>
       <v-flex xs12 sm6 offset-sm3>
         <v-card class="question-card">
-          <v-progress-linear id="progress" v-model="bar" color="indigo" height="20"
+          <v-progress-linear id="progress" v-model="bar" color="indigo" height="8"
           ></v-progress-linear>
 
           <v-img
