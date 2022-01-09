@@ -20,7 +20,8 @@
         target="_blank"
         id="link"
       >
-        <span>USCIS Website</span>
+        <v-icon dark style="padding-right: 2px">public</v-icon>
+        <span>USCIS</span>
       </v-btn>
     </v-app-bar>
 
@@ -189,6 +190,8 @@ export default {
 }
 #link{
   padding-top: 12px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 </style>
