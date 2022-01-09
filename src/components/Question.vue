@@ -31,7 +31,8 @@
           <v-alert
               id="alert-bar"
               v-model="alertOn"
-              :type="alertType"
+              dark
+              :color="alertType"
           >
               <h3 v-if="score>=60">Congratulations!</h3>
               <h3 v-else>Sorry! </h3>
@@ -47,13 +48,13 @@
           </v-alert>
 
           <v-card-actions v-show="!hideButtons" class="spaced">
-              <v-btn v-on:click="scoreAndIncrement" text color="green">I know</v-btn>
-              <v-btn v-on:click="scoreAndShowAnswer" text color="red">I don't know</v-btn>
+              <v-btn :disabled="disableIKnow" v-on:click="scoreAndIncrement" text color="green">I know</v-btn>
+              <v-btn :disabled="disableIDontKnow" v-on:click="scoreAndShowAnswer" text color="red">I don't know</v-btn>
           </v-card-actions>
 
-          <v-card-actions v-show="!alertOn" class="to-the-right">
+          <v-card-actions v-show="!disableShowAns" class="to-the-right">
                 <v-btn fab dark color="indigo" v-on:click="showAnswer">
-                  <v-icon dark>explore</v-icon>
+                  <v-icon dark>search</v-icon>
               </v-btn>
           </v-card-actions>
 
@@ -92,6 +93,9 @@ export default {
     return {
       counter: 1,
       hideButtons: false,
+      disableIKnow: false,
+      disableIDontKnow: false,
+      disableShowAns: false,
       showAns: false,
       bar: 0,
       correct: 0,
@@ -102,7 +106,7 @@ export default {
   },
   computed: {
     alertType: function () {
-      return this.score >= 60 ? 'success' : 'warning'
+      return this.score >= 60 ? 'green' : 'red'
     },
     fillUnit: function () {
       return 100.0 / this.questions.length
@@ -115,17 +119,21 @@ export default {
         this.counter++
         this.hideButtons = false
         this.showAns = false
+        this.disableIKnow = false
+        this.disableIDontKnow = false
+        this.disableShowAns = false
       } else {
         this.bar = this.bar + this.fillUnit
         this.alertOn = true
+        this.disableShowAns = true
         this.hideButtons = true
         this.showAns = false
         this.score = Math.round(this.correct * 100 / this.questions.length)
       }
     },
     showAnswer: function () {
-      this.hideButtons = true
       this.showAns = true
+      this.disableShowAns = true
     },
     formatAnswer: function (string) {
       var arr = string.split('|')
@@ -140,8 +148,15 @@ export default {
       this.increment()
     },
     scoreAndShowAnswer: function () {
-      this.showAnswer()
-      this.incorrect++
+      if (this.showAns === true) {
+        this.incorrect++
+        this.increment()
+      } else {
+        this.showAnswer()
+        this.incorrect++
+        this.disableIKnow = true
+        this.disableIDontKnow = true
+      }
     },
     reload: function () {
       location.reload(true)
