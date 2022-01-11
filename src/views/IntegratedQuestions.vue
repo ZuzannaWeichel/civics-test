@@ -29,13 +29,13 @@ export default {
         return sorted
       }
       if (this.subcategory === 'geography') {
-        return civics.filter(question => question.subcategory === 'Geography')
+        return sorted.filter(question => question.subcategory === 'Geography')
       }
       if (this.subcategory === 'symbols') {
-        return civics.filter(question => question.subcategory === 'Symbols')
+        return sorted.filter(question => question.subcategory === 'Symbols')
       }
       if (this.subcategory === 'holidays') {
-        return civics.filter(question => question.subcategory === 'Holidays')
+        return sorted.filter(question => question.subcategory === 'Holidays')
       }
       return civics
     }
