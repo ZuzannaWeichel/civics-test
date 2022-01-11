@@ -2,7 +2,7 @@
   <div>
     <show-question
       v-bind:imgSrc="imgSrc"
-      v-bind:questions="questions"
+      v-bind:questions="processedQuestions"
     ></show-question>
   </div>
 </template>
